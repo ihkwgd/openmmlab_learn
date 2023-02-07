@@ -11,7 +11,7 @@ model = dict(
     head=dict(
         type='LinearClsHead',
         # 最终分类
-        num_classes=5,
+        num_classes=10,
         in_channels=512,
         loss=dict(type='CrossEntropyLoss', loss_weight=1.0),
         topk=(1, )))
@@ -50,9 +50,9 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type='ImageNet',
-        data_prefix = '/HOME/scz0bf4/dataset',
-        ann_file = '/HOME/scz0bf4/dataset/train.txt',
-        classes = '/HOME/scz0bf4/dataset/classes.txt',
+        data_prefix = 'dataset',
+        ann_file = 'dataset/train.txt',
+        classes = 'dataset/classes.txt',
 	    pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='RandomResizedCrop', size=224),
@@ -69,9 +69,9 @@ data = dict(
     ),
     val=dict(
 	    type='ImageNet',
-        data_prefix = '/HOME/scz0bf4/dataset',
-        ann_file = '/HOME/scz0bf4/dataset/val.txt',
-        classes = '/HOME/scz0bf4/dataset/classes.txt',
+        data_prefix = 'dataset',
+        ann_file = 'dataset/val.txt',
+        classes = 'dataset/classes.txt',
 	    pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='Resize', size=(256, -1)),
@@ -100,5 +100,5 @@ lr_config = dict(policy='step', step=[1])
 runner = dict(type='EpochBasedRunner', max_epochs=50)
 gpu_ids = [0]
 # 加载预训练模型
-load_from='/HOME/scz0bf4/mmclassification/checkpoints/resnet18_batch256_imagenet_20200708-34ab8f90.pth'
+load_from='mmclassification/checkpoints/resnet18_batch256_imagenet_20200708-34ab8f90.pth'
 
