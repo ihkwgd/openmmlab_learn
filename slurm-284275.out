@@ -1,0 +1,33 @@
+/HOME/scz0bf4/.local/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/HOME/scz0bf4/.local/lib/python3.8/site-packages/mmcv/utils/config.py", line 103, in _validate_py_syntax
+    ast.parse(content)
+  File "/HOME/scz0bf4/.conda/envs/opennmmlab_mmclassification/lib/python3.8/ast.py", line 47, in parse
+    return compile(source, filename, mode, flags,
+  File "<unknown>", line 59
+    val=dict(
+    ^
+IndentationError: unexpected indent
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 205, in <module>
+    main()
+  File "train.py", line 93, in main
+    cfg = Config.fromfile(args.config)
+  File "/HOME/scz0bf4/.local/lib/python3.8/site-packages/mmcv/utils/config.py", line 340, in fromfile
+    cfg_dict, cfg_text = Config._file2dict(filename,
+  File "/HOME/scz0bf4/.local/lib/python3.8/site-packages/mmcv/utils/config.py", line 207, in _file2dict
+    Config._validate_py_syntax(filename)
+  File "/HOME/scz0bf4/.local/lib/python3.8/site-packages/mmcv/utils/config.py", line 105, in _validate_py_syntax
+    raise SyntaxError('There are syntax errors in config '
+SyntaxError: There are syntax errors in config file /data/run01/scz0bf4/config.py: unexpected indent (<unknown>, line 59)
+Exception ignored in: <function _TemporaryFileCloser.__del__ at 0x2afdf0e6c700>
+Traceback (most recent call last):
+  File "/HOME/scz0bf4/.conda/envs/opennmmlab_mmclassification/lib/python3.8/tempfile.py", line 440, in __del__
+    self.close()
+  File "/HOME/scz0bf4/.conda/envs/opennmmlab_mmclassification/lib/python3.8/tempfile.py", line 436, in close
+    unlink(self.name)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpeaorqbgh/tmpjauirspa.py'
